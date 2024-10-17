@@ -1,0 +1,156 @@
+  CREATE TABLE &JOB_ID._TMP AS
+  SELECT * FROM CONNECTION TO ORACLE(
+    SELECT  %STR(/)%STR(*)+ INDEX(A GS_KNOW_BBS_ID_IDX) %STR(*)%STR(/)
+				MESSAGE_ID                                                    /* 게시물번호                                                                                */
+         ,  DBSTS                                                         /* 상태                                                                                      */
+         ,  BBS_ID                                                        /* 게시판번호                                                                                */
+         ,  MESSAGE_LEVEL                                                 /* 게시물레벨                                                                                */
+         ,  PARENT_MESSAGE_ID                                             /* 상위게시물번호                                                                            */
+         ,  ECUSERID                                                      /* 고객번호                                                                                  */
+         ,  NICK_NAME                                                     /* 닉네임                                                                                    */
+         ,  AGE_LIMIT_FLAG                                                /* 연령제한여부                                                                              */
+         ,  REPORT_FLAG                                                   /* 신고여부                                                                                  */
+         ,  LSECTID                                                       /* 대분류                                                                                    */
+         ,  MSECTID                                                       /* 중분류                                                                                    */
+         ,  RPST_PRDID                                                    /* 대표상품코드                                                                              */
+         ,  PRDID                                                         /* 상품코드                                                                                  */
+         ,  BUYER_FLAG                                                    /* 구매자여부                                                                                */
+         ,  MESSAGE_FLAG                                                  /* 우수상품평구분                                                                            */
+         ,  CONTENTS_FLAG                                                 /* 첨부파일구분                                                                              */
+         ,  SMS_FLAG                                                      /* SMS알림여부                                                                               */
+         ,  PRDID2                                                        /* 상품코드2                                                                                 */
+         ,  PRDID3                                                        /* 상품코드3                                                                                 */
+         ,  PRDID4                                                        /* 상품코드4                                                                                 */
+         ,  URGENT_FLAG                                                   /* 긴급여부                                                                                  */
+         ,  START_DATE                                                    /* 시작일시                                                                                  */
+         ,  END_DATE                                                      /* 종료일시                                                                                  */
+         ,  CHOICE_FLAG                                                   /* 선택여부                                                                                  */
+         ,  CHOICE_PRDID                                                  /* 선택상품                                                                                  */
+         ,  CHOICE_DATE                                                   /* 선택일시                                                                                  */
+         ,  PRD_COUNT                                                     /* 연관상품수                                                                                */
+         ,  REPLY_ADOPT                                                   /* 답변채택                                                                                  */
+         ,  PRD_SATISFACT                                                 /* 상품만족도                                                                                */
+         ,  EVAL_NAME1                                                    /* 평가항목명1                                                                               */
+         ,  EVAL_VALUE1                                                   /* 평가항목값1                                                                               */
+         ,  EVAL_NAME2                                                    /* 평가항목명2                                                                               */
+         ,  EVAL_VALUE2                                                   /* 평가항목값2                                                                               */
+         ,  EVAL_NAME3                                                    /* 평가항목명3                                                                               */
+         ,  EVAL_VALUE3                                                   /* 평가항목값3                                                                               */
+         ,  EVAL_NAME4                                                    /* 평가항목명4                                                                               */
+         ,  EVAL_VALUE4                                                   /* 평가항목값4                                                                               */
+         ,  READ_COUNT                                                    /* 조회수                                                                                    */
+         ,  PARTICIPANT_COUNT                                             /* 도움수                                                                                    */
+         ,  OPPOSITION_COUNT                                              /* 반대수                                                                                    */
+         ,  REPLY_COUNT                                                   /* 답변수                                                                                    */
+         ,  BUYER_REPLY_COUNT                                             /* 구매자답변수                                                                              */
+         ,  COMMENT_COUNT                                                 /* 꼬리글수                                                                                  */
+         ,  SCRAP_COUNT                                                   /* 스크랩수                                                                                  */
+         ,  POINT                                                         /* 포인트                                                                                    */
+         ,  INDEX_COLUMN                                                  /* 정렬컬럼                                                                                  */
+         ,  CREUSER                                                       /* 작성자                                                                                    */
+         ,  CREDATE                                                       /* 작성일시                                                                                  */
+         ,  UPDUSER                                                       /* 수정자                                                                                    */
+         ,  UPDDATE                                                       /* 수정일시                                                                                  */
+         ,  GUBUN                                                         /* 일반/어린이 독후감 구분 (1:일반, 2:어린이 독후감)                                         */
+         ,  AGE                                                           /* 어린이독후감-나이(EC_REFSET.REFSETID=2073 참조)                                           */
+         ,  SUB_NAME                                                      /* 어린이 독후감-별명                                                                        */
+         ,  ORDNUM                                                        /* CATV 주문번호                                                                             */
+         ,  RPST_FLAG                                                     /* 대표상품평노출여부 Y:노출 N:비노출                                                        */
+         ,  YEAR_SALE_POINT                                               /* 연간할인권 지급금액                                                                       */
+         ,  SAVE_ROOT                                                     /* 고객저장경로                                                                              */
+         ,  CUS_GRADE                                                     /* 고객등급- AA:다이아몬드, BB: 에메랄드, CC: 사파이어, DD:루비, EE:골드, FF:실버, GG:브론즈 */
+         ,  DSCR_BYTES                                                    /* 본문 Bytes                                                                                */
+         ,  ORD_OPTION_DISP_YN                                            /* 구매옵션노출여부(Y:노출, N:비노출)                                                        */
+         ,  BEST_YEAR_SALE_POINT                                          /* 베스트 상품평 선정 연간할인권 지급금액                                                    */
+         ,  BEST_FLAG                                                     /* 베스트 상품평 여부 (C: 후보, B: 선정)                                                     */
+         ,  BEST_CHOICEUSER                                               /* 베스트 상품평 선정자                                                                      */
+         ,  BEST_CHOICEDATE                                               /* 베스트 상품평 선정일시                                                                    */
+         ,  FILE_STS                                                      /* 첨부화일삭제여부(F)                                                                       */
+         ,  PROMO_NUM                                                     /* 프로모션번호                                                                              */
+         ,  IMAGE_LIMIT_FLAG                                              /* 단품상단 이미지 노출제한                                                                  */
+         ,  CHANL_CD                                                      /* 채널코드                                                                                  */
+         ,  TO_CHAR(SYSDATE,'YYYYMMDDHH24MISS') AS ETL_REG_DTM            /* STAGING등록일시                                                                           */
+			,	CASE WHEN REMARK = 'Y' THEN 'Y' ELSE 'N' END AS HAPPYTESTER   /* HAPPYTESTER    																							  		  */
+         ,  ONEMM_REVW_YN                                                 /* 한달리뷰여부 2022년1월 추가      */
+         ,  PARNT_REVW_ID                                                 /* 부모리뷰ID 2022년1월 추가        */
+      FROM  src_smtc.store_own__gs_know_message A
+     WHERE  BBS_ID IN ('estimate', 'restrict')
+       AND 	CREDATE BETWEEN TO_DATE(&S_TIME, 'YYYYMMDD HH24:MI:SS') AND TO_DATE(&E_TIME, 'YYYYMMDD HH24:MI:SS')
+	  UNION ALL
+    SELECT  %STR(/)%STR(*)+ INDEX(B GS_KNOW_UPDDATE_IDX) %STR(*)%STR(/)
+				MESSAGE_ID                                                    /* 게시물번호                                                                                */
+         ,  DBSTS                                                         /* 상태                                                                                      */
+         ,  BBS_ID                                                        /* 게시판번호                                                                                */
+         ,  MESSAGE_LEVEL                                                 /* 게시물레벨                                                                                */
+         ,  PARENT_MESSAGE_ID                                             /* 상위게시물번호                                                                            */
+         ,  ECUSERID                                                      /* 고객번호                                                                                  */
+         ,  NICK_NAME                                                     /* 닉네임                                                                                    */
+         ,  AGE_LIMIT_FLAG                                                /* 연령제한여부                                                                              */
+         ,  REPORT_FLAG                                                   /* 신고여부                                                                                  */
+         ,  LSECTID                                                       /* 대분류                                                                                    */
+         ,  MSECTID                                                       /* 중분류                                                                                    */
+         ,  RPST_PRDID                                                    /* 대표상품코드                                                                              */
+         ,  PRDID                                                         /* 상품코드                                                                                  */
+         ,  BUYER_FLAG                                                    /* 구매자여부                                                                                */
+         ,  MESSAGE_FLAG                                                  /* 우수상품평구분                                                                            */
+         ,  CONTENTS_FLAG                                                 /* 첨부파일구분                                                                              */
+         ,  SMS_FLAG                                                      /* SMS알림여부                                                                               */
+         ,  PRDID2                                                        /* 상품코드2                                                                                 */
+         ,  PRDID3                                                        /* 상품코드3                                                                                 */
+         ,  PRDID4                                                        /* 상품코드4                                                                                 */
+         ,  URGENT_FLAG                                                   /* 긴급여부                                                                                  */
+         ,  START_DATE                                                    /* 시작일시                                                                                  */
+         ,  END_DATE                                                      /* 종료일시                                                                                  */
+         ,  CHOICE_FLAG                                                   /* 선택여부                                                                                  */
+         ,  CHOICE_PRDID                                                  /* 선택상품                                                                                  */
+         ,  CHOICE_DATE                                                   /* 선택일시                                                                                  */
+         ,  PRD_COUNT                                                     /* 연관상품수                                                                                */
+         ,  REPLY_ADOPT                                                   /* 답변채택                                                                                  */
+         ,  PRD_SATISFACT                                                 /* 상품만족도                                                                                */
+         ,  EVAL_NAME1                                                    /* 평가항목명1                                                                               */
+         ,  EVAL_VALUE1                                                   /* 평가항목값1                                                                               */
+         ,  EVAL_NAME2                                                    /* 평가항목명2                                                                               */
+         ,  EVAL_VALUE2                                                   /* 평가항목값2                                                                               */
+         ,  EVAL_NAME3                                                    /* 평가항목명3                                                                               */
+         ,  EVAL_VALUE3                                                   /* 평가항목값3                                                                               */
+         ,  EVAL_NAME4                                                    /* 평가항목명4                                                                               */
+         ,  EVAL_VALUE4                                                   /* 평가항목값4                                                                               */
+         ,  READ_COUNT                                                    /* 조회수                                                                                    */
+         ,  PARTICIPANT_COUNT                                             /* 도움수                                                                                    */
+         ,  OPPOSITION_COUNT                                              /* 반대수                                                                                    */
+         ,  REPLY_COUNT                                                   /* 답변수                                                                                    */
+         ,  BUYER_REPLY_COUNT                                             /* 구매자답변수                                                                              */
+         ,  COMMENT_COUNT                                                 /* 꼬리글수                                                                                  */
+         ,  SCRAP_COUNT                                                   /* 스크랩수                                                                                  */
+         ,  POINT                                                         /* 포인트                                                                                    */
+         ,  INDEX_COLUMN                                                  /* 정렬컬럼                                                                                  */
+         ,  CREUSER                                                       /* 작성자                                                                                    */
+         ,  CREDATE                                                       /* 작성일시                                                                                  */
+         ,  UPDUSER                                                       /* 수정자                                                                                    */
+         ,  UPDDATE                                                       /* 수정일시                                                                                  */
+         ,  GUBUN                                                         /* 일반/어린이 독후감 구분 (1:일반, 2:어린이 독후감)                                         */
+         ,  AGE                                                           /* 어린이독후감-나이(EC_REFSET.REFSETID=2073 참조)                                           */
+         ,  SUB_NAME                                                      /* 어린이 독후감-별명                                                                        */
+         ,  ORDNUM                                                        /* CATV 주문번호                                                                             */
+         ,  RPST_FLAG                                                     /* 대표상품평노출여부 Y:노출 N:비노출                                                        */
+         ,  YEAR_SALE_POINT                                               /* 연간할인권 지급금액                                                                       */
+         ,  SAVE_ROOT                                                     /* 고객저장경로                                                                              */
+         ,  CUS_GRADE                                                     /* 고객등급- AA:다이아몬드, BB: 에메랄드, CC: 사파이어, DD:루비, EE:골드, FF:실버, GG:브론즈 */
+         ,  DSCR_BYTES                                                    /* 본문 Bytes                                                                                */
+         ,  ORD_OPTION_DISP_YN                                            /* 구매옵션노출여부(Y:노출, N:비노출)                                                        */
+         ,  BEST_YEAR_SALE_POINT                                          /* 베스트 상품평 선정 연간할인권 지급금액                                                    */
+         ,  BEST_FLAG                                                     /* 베스트 상품평 여부 (C: 후보, B: 선정)                                                     */
+         ,  BEST_CHOICEUSER                                               /* 베스트 상품평 선정자                                                                      */
+         ,  BEST_CHOICEDATE                                               /* 베스트 상품평 선정일시                                                                    */
+         ,  FILE_STS                                                      /* 첨부화일삭제여부(F)                                                                       */
+         ,  PROMO_NUM                                                     /* 프로모션번호                                                                              */
+         ,  IMAGE_LIMIT_FLAG                                              /* 단품상단 이미지 노출제한                                                                  */
+         ,  CHANL_CD                                                      /* 채널코드                                                                                  */
+         ,  TO_CHAR(SYSDATE,'YYYYMMDDHH24MISS') AS ETL_REG_DTM            /* STAGING등록일시    																							  */
+			,	CASE WHEN REMARK = 'Y' THEN 'Y' ELSE 'N' END AS HAPPYTESTER   /* HAPPYTESTER    																							  		  */
+         ,  ONEMM_REVW_YN                                                 /* 한달리뷰여부 2022년1월 추가      */
+         ,  PARNT_REVW_ID                                                 /* 부모리뷰ID 2022년1월 추가        */
+      FROM  src_smtc.store_own__gs_know_message B
+  	  WHERE  BBS_ID IN ('estimate', 'restrict')
+       AND  UPDDATE BETWEEN TO_DATE(&S_TIME, 'YYYYMMDD HH24:MI:SS') AND TO_DATE(&E_TIME, 'YYYYMMDD HH24:MI:SS')
+  );
